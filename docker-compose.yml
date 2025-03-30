@@ -188,6 +188,6 @@ services:
     restart: unless-stopped
     command: tunnel --no-autoupdate run --url http://n8n:5678
     environment:
-      - TUNNEL_TOKEN=eyJhIjoiMGMzY2U1NjRiNjc0ZDdkM2I5ZDM4YTIzNjg3MDU3ZDMiLCJ0IjoiNDYyOTA5YjAtYzkyOS00MDcwLWJjZjctNDI5ZjJhYmQzNGVmIiwicyI6IlpqY3dZakF5T0RjdFpqWTJaQzAwTUdFd0xXSXlOalV0TkRBNVlqSTJPREU0WW1ZMCJ9
+      - TUNNEL_TOKEN=eyJhIjoiMGMzY2U1NjRiNjc0ZDdkM2I5ZDM4YTIzNjg3MDU3ZDMiLCJ0IjoiNDYyOTA5YjAtYzkyOS00MDcwLWJjZjctNDI5ZjJhYmQzNGVmIiwicyI6IllqVmxNakE0TmpNdE4yTmxOeTAwT0RKa0xUbGxOVEV0TlRrd1ltVXlORFF6T1RSaiJ9
     depends_on:
       - n8n
