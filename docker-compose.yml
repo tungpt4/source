@@ -188,6 +188,8 @@ services:
     hostname: n8n.thuhoai-academy.com
     restart: unless-stopped
     command: tunnel --no-autoupdate run --url http://n8n:5678
+    extra_hosts:
+      - "n8n:172.18.0.8"
     environment:
       - TUNNEL_TOKEN=eyJhIjoiMGMzY2U1NjRiNjc0ZDdkM2I5ZDM4YTIzNjg3MDU3ZDMiLCJ0IjoiNDYyOTA5YjAtYzkyOS00MDcwLWJjZjctNDI5ZjJhYmQzNGVmIiwicyI6IllqVmxNakE0TmpNdE4yTmxOeTAwT0RKa0xUbGxOVEV0TlRrd1ltVXlORFF6T1RSaiJ9
     depends_on:
