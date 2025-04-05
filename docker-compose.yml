@@ -70,7 +70,8 @@ services:
     ports:
       - "3000:8080"
     environment:
-      OLLAMA_BASE_URL: "http://ollama:11434"  # Kết nối trực tiếp qua tên container
+      #OLLAMA_BASE_URL: "http://ollama:11434"  # Kết nối trực tiếp qua tên container
+      OLLAMA_BASE_URL: "http://192.168.100.1:11434"  # Kết nối qua ip cua may host chua ollama
     volumes:
       - open-webui:/app/backend/data
 
@@ -133,32 +134,32 @@ services:
     volumes:
       - qdrant_storage:/qdrant/storage
 
-  ollama-cpu:
-    profiles: ["cpu"]
-    <<: *service-ollama
+  #ollama-cpu:
+  #  profiles: ["cpu"]
+  #  <<: *service-ollama
 
-  ollama-gpu:
-    profiles: ["gpu-nvidia"]
-    <<: *service-ollama
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+  #ollama-gpu:
+  #  profiles: ["gpu-nvidia"]
+  #  <<: *service-ollama
+  #  deploy:
+  #    resources:
+  #      reservations:
+  #        devices:
+  #          - driver: nvidia
+  #            count: 1
+  #            capabilities: [gpu]
 
-  ollama-pull-llama-cpu:
-    profiles: ["cpu"]
-    <<: *init-ollama
-    depends_on:
-      - ollama-cpu
+  #ollama-pull-llama-cpu:
+  #  profiles: ["cpu"]
+  #  <<: *init-ollama
+  #  depends_on:
+  #    - ollama-cpu
 
-  ollama-pull-llama-gpu:
-    profiles: ["gpu-nvidia"]
-    <<: *init-ollama
-    depends_on:
-      - ollama-gpu
+  #ollama-pull-llama-gpu:
+  #  profiles: ["gpu-nvidia"]
+  #  <<: *init-ollama
+  #  depends_on:
+  #    - ollama-gpu
   #ngrok:
   #    image: ngrok/ngrok:latest
   #    networks: ['demo']
